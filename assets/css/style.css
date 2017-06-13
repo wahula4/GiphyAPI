@@ -1,1 +1,16 @@
+h1 {
+font-family: 'Mogra', cursive;
+}
 
+.item {
+	display: inline-block;
+	margin-right: 5px;
+}
+
+ body { 
+  background: url('http://i.imgur.com/CFjU41M.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
