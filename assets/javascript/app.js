@@ -1,3 +1,5 @@
+// I want to make the search clear when I hit enter
+
 var topics = ["Full House", "Wayne's World", "Nickelodeon", "Power Rangers", "Home Alone", "Chris Farley",
 			  "The Fresh Prince", "Dumb and Dumber", "Reading Rainbow", "Keenan and Kel",
 			  "TMNT", "Friends", "Topanga", "Al Bundy", "AOL", "Clueless"
