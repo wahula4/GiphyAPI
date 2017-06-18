@@ -72,25 +72,15 @@ var topics = ["Full House", "Wayne's World", "Nickelodeon", "Power Rangers", "Ho
       // This function handles events where a button is clicked
       $("#add-gif").on("click", function(event) {
         event.preventDefault();
+
         // This line grabs the input from the textbox
         var addGif = $("#gif-input").val().trim();
         // Adding topic from the textbox to our array
         topics.push(addGif);
+        //return text in search to placeholder text
+        $("#gif-input").val("");
         // Calling renderButtons which handles the processing of our topics array
         renderButtons();
       });
       // Calling the renderButtons function to display the initial buttons
       renderButtons();
-      
-        //   $(document).on("click", "image", function() {
-        //   var state = $(this).attr("src");
-        //   var stillSrc = results[i].images.fixed_height_still.url;
-        //   var animatedSrc = results[i].images.fixed_height.url;
-          
-        //   if (state === retroGif) {
-        //     $(this).attr("src", animatedSrc);
-        //   } 
-        //   else {
-        //     $(this).attr("src", stillSrc);
-        //   }
-        // });
