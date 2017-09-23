@@ -4,13 +4,13 @@ var topics = ["Full House", "Wayne's World", "Nickelodeon", "Power Rangers", "Ho
 			  "The Fresh Prince", "Dumb and Dumber", "Reading Rainbow", "Keenan and Kel",
 			  "TMNT", "Friends", "Topanga", "Al Bundy", "AOL", "Clueless"
 			 ];
-      
+
         $(document).on("click", "button", function() {
 
       $("#gifs-view").empty(); //empties div to only see 1 button's gifs at a time
 
       var search = $(this).attr("data-name");
-      var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
+      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         search + "&api_key=dc6zaTOxFJmzC&limit=10";
       $.ajax({
           url: queryURL,
@@ -39,7 +39,7 @@ var topics = ["Full House", "Wayne's World", "Nickelodeon", "Power Rangers", "Ho
 
           $(document).on("click", "img", function() {
           var state = $(this).attr("data-state");
-      
+
             if (state === "still") {
               $(this).attr("src", $(this).attr("data-animate"));
               $(this).attr("data-state", "animate");
