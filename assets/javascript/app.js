@@ -1,6 +1,5 @@
-// I want to make the search clear when I hit enter
 
-var topics = ["Full House", "Wayne's World", "Nickelodeon", "Power Rangers", "Home Alone", "Chris Farley",
+const topics = ["Full House", "Wayne's World", "Nickelodeon", "Power Rangers", "Home Alone", "Chris Farley",
 			  "The Fresh Prince", "Dumb and Dumber", "Reading Rainbow", "Keenan and Kel",
 			  "TMNT", "Friends", "Topanga", "Al Bundy", "AOL", "Clueless"
 			 ];
@@ -9,21 +8,21 @@ var topics = ["Full House", "Wayne's World", "Nickelodeon", "Power Rangers", "Ho
 
       $("#gifs-view").empty(); //empties div to only see 1 button's gifs at a time
 
-      var search = $(this).attr("data-name");
-      var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+      let search = $(this).attr("data-name");
+      const queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         search + "&api_key=dc6zaTOxFJmzC&limit=10";
       $.ajax({
           url: queryURL,
           method: "GET"
         })
         .done(function(response) {
-          var results = response.data;
+          let results = response.data;
           console.log(response.data);
-          for (var i = 0; i < results.length; i++) {
-            var gifDiv = $("<div class='item'>");
-            var rating = results[i].rating;
-            var p = $("<p>").text("Rating: " + rating);
-            var retroGif = $("<img>");
+          for (let i = 0; i < results.length; i++) {
+            let gifDiv = $("<div class='item'>");
+            let rating = results[i].rating;
+            let p = $("<p>").text("Rating: " + rating);
+            let retroGif = $("<img>");
             retroGif.attr({"src": results[i].images.fixed_height_still.url,
                           "data-state": "still",
                           "class": "image",
@@ -38,7 +37,7 @@ var topics = ["Full House", "Wayne's World", "Nickelodeon", "Power Rangers", "Ho
     });
 
           $(document).on("click", "img", function() {
-          var state = $(this).attr("data-state");
+          let state = $(this).attr("data-state");
 
             if (state === "still") {
               $(this).attr("src", $(this).attr("data-animate"));
@@ -51,14 +50,14 @@ var topics = ["Full House", "Wayne's World", "Nickelodeon", "Power Rangers", "Ho
 // GIVE IT A DATA ATTRIBUTE WITH A SRC AND THE ANIMATED URL
 
       // Function for displaying buttons
-      function renderButtons() {
+      const renderButtons = () => {
         // Deleting the buttons prior to adding new buttons
         // (this is necessary otherwise you will have repeat buttons)
         $("#buttons-view").empty();
         // Looping through the array of topics
-        for (var i = 0; i < topics.length; i++) {
+        for (let i = 0; i < topics.length; i++) {
           // Then dynamicaly generating buttons for each topic in the array
-          var a = $("<button>");
+          let a = $("<button>");
           // Adding classes to our button
           a.addClass("gif btn btn-default");
           // Adding a data-attribute
@@ -70,11 +69,11 @@ var topics = ["Full House", "Wayne's World", "Nickelodeon", "Power Rangers", "Ho
         }
       }
       // This function handles events where a button is clicked
-      $("#add-gif").on("click", function(event) {
+      $("#add-gif").on("click", event => {
         event.preventDefault();
 
         // This line grabs the input from the textbox
-        var addGif = $("#gif-input").val().trim();
+        let addGif = $("#gif-input").val().trim();
         // Adding topic from the textbox to our array
         topics.push(addGif);
         //return text in search to placeholder text
